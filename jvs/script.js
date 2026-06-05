@@ -105,7 +105,7 @@ $(document).ready(function () {
 
     /* Zatvori meni kad se prozor proširi iznad mobilnog breakpointa */
     $(window).resize(function () {
-        if ($(window).width() > 768) {
+        if ($(window).width() > 960) {
             $('.mob-izbornik').hide();
             $('.hamburger').removeClass('aktivan');
             $('body').css('overflow', '');
@@ -127,7 +127,7 @@ $(document).ready(function () {
     }
 
     function formatirajCijenu(iznos) {
-        return iznos.toFixed(2).replace('.', ',') + ' EUR';
+        return iznos.toFixed(2).replace('.', ',') + ' €';
     }
 
     /* Dodajem proizvod u kosaricu */
@@ -270,9 +270,10 @@ $(document).ready(function () {
             $g.data('slika')
         );
 
-        /* Kratka animacija na gumbu */
-        $g.css({ 'transform': 'scale(1.3)', 'background-color': '#495440', 'color': '#FFFFFF' });
-        setTimeout(function () { $g.css('transform', ''); }, 250);
+        $g.css({ 'transform': 'scale(1.3)', 'background-color': '#495440', 'color': '#FFFFFF', 'border-color': '#495440' });
+        setTimeout(function () {
+            $g.css({ 'transform': '', 'background-color': '', 'color': '', 'border-color': '' });
+        }, 250);
     });
 
     /* Pokrecem kosaricu */
