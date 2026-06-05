@@ -661,6 +661,45 @@ ul {
 }
 
 
+/* Gumb pogledajte više */
+
+.vise-omotac {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1200px;
+    margin: 28px auto 0;
+    padding: 0 48px;
+}
+
+.gumb-vise {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(44, 26, 14, 0.5);
+    letter-spacing: 0.04em;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.2s, gap 0.2s;
+}
+
+.gumb-vise:hover {
+    color: #2C1A0E;
+    gap: 9px;
+}
+
+.gumb-vise-snizenje {
+    color: rgba(139, 0, 0, 0.5);
+}
+
+.gumb-vise-snizenje:hover {
+    color: #8B0000;
+}
+
+
 /* ============================================================
    Sniženje — index.html
    ============================================================ */
@@ -668,6 +707,10 @@ ul {
 .sekcija-snizenje {
     padding: 72px 0;
     background-color: #FFFFFF;
+}
+
+.sekcija-snizenje .sekcija-naslov {
+    color: #8B0000;
 }
 
 
@@ -1312,7 +1355,8 @@ ul {
     .recenzije-mreza,
     .prednosti-unutra,
     .podnozje-veze,
-    .poklon-unutra {
+    .poklon-unutra,
+    .vise-omotac {
         padding-left: 32px;
         padding-right: 32px;
     }
@@ -1388,6 +1432,11 @@ ul {
    ============================================================ */
 
 @media (max-width: 768px) {
+    .vise-omotac {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .hero-sekcija {
         padding: 32px 16px 40px;
     }
