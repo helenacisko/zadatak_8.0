@@ -292,29 +292,17 @@ $(document).ready(function () {
     $('#shop-filter').on('change', function () {
         var odabrana = $(this).val();
         var $kartice = $('.shop-kartica');
-        var $poruka = $('.shop-nema-rezultata');
 
         /* Sakrij sve kartice s fade efektom */
         $kartice.fadeOut(250, function () {
-
-            /* Brojač vidljivih nakon filtriranja */
-            var brojVidljivih = 0;
 
             $kartice.each(function () {
                 var kategorija = $(this).data('kategorija');
 
                 if (odabrana === 'sve' || kategorija === odabrana) {
                     $(this).fadeIn(350);
-                    brojVidljivih++;
                 }
             });
-
-            /* Prikaži poruku ako nema rezultata */
-            if (brojVidljivih === 0) {
-                $poruka.addClass('vidljiva');
-            } else {
-                $poruka.removeClass('vidljiva');
-            }
         });
     });
 

@@ -1660,9 +1660,8 @@ ul {
 /* Sekcija */
 
 .shop-sekcija {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 48px 48px 72px;
+    padding: 72px 48px;
+    background-color: #FFFFFF;
 }
 
 /* Zaglavlje s naslovom i filterom */
@@ -1672,12 +1671,15 @@ ul {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .shop-naslov {
     font-family: 'Noto Serif Display', serif;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #2C1A0E;
 }
@@ -1710,6 +1712,8 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Oznaka NOVO */
@@ -1728,21 +1732,6 @@ ul {
     z-index: 2;
 }
 
-/* Poruka kad nema rezultata */
-
-.shop-nema-rezultata {
-    display: none;
-    text-align: center;
-    font-size: 0.95rem;
-    color: rgba(44, 26, 14, 0.55);
-    padding: 60px 20px;
-    font-style: italic;
-}
-
-.shop-nema-rezultata.vidljiva {
-    display: block;
-}
-
 
 /* ============================================================
    Webshop responzivnost — 1200px
@@ -1750,7 +1739,7 @@ ul {
 
 @media (max-width: 1200px) {
     .shop-sekcija {
-        padding: 40px 32px 64px;
+        padding: 60px 32px;
     }
 }
 
@@ -1765,16 +1754,8 @@ ul {
         gap: 18px;
     }
 
-    .shop-zaglavlje {
-        gap: 16px;
-    }
-
     .shop-filter {
         width: 220px;
-    }
-
-    .shop-naslov {
-        font-size: 1.9rem;
     }
 }
 
@@ -1785,14 +1766,13 @@ ul {
 
 @media (max-width: 768px) {
     .shop-sekcija {
-        padding: 32px 20px 56px;
+        padding: 48px 20px;
     }
 
     .shop-zaglavlje {
         flex-direction: column;
         align-items: stretch;
         gap: 20px;
-        margin-bottom: 28px;
     }
 
     .shop-filter {
@@ -1800,27 +1780,7 @@ ul {
     }
 
     .shop-mreza {
-        grid-template-columns: repeat(2, 1fr);
         gap: 14px;
-    }
-
-    .shop-naslov {
-        font-size: 1.7rem;
-    }
-}
-
-
-/* ============================================================
-   Webshop responzivnost — 480px
-   ============================================================ */
-
-@media (max-width: 480px) {
-    .shop-sekcija {
-        padding: 28px 16px 48px;
-    }
-
-    .shop-naslov {
-        font-size: 1.5rem;
     }
 }
 
