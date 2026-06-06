@@ -1837,3 +1837,175 @@ ul {
         grid-template-columns: 1fr;
     }
 }
+
+/* ============================================================
+   Galerija sekcija — galerija.html
+   ============================================================ */
+
+/* Sekcija */
+
+.galerija-sekcija {
+    padding: 72px 0;
+    background-color: #FFFFFF;
+}
+
+/* Zaglavlje s naslovom */
+
+.galerija-zaglavlje {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    padding: 0 48px;
+}
+
+.galerija-naslov {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2C1A0E;
+}
+
+/* Mreža slika */
+
+.galerija-mreza {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+.galerija-veza-wrap {
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 0 48px;
+    text-align: right;
+}
+
+/* Okvir slike */
+
+.galerija-okvir {
+    display: block;
+    overflow: hidden;
+    border-radius: 6px;
+    cursor: zoom-in;
+    transition: box-shadow 0.4s ease;
+}
+
+.galerija-okvir:hover {
+    box-shadow: 0 8px 24px rgba(44, 26, 14, 0.15);
+}
+
+.galerija-slika {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.galerija-okvir:hover .galerija-slika {
+    transform: scale(1.05);
+}
+
+
+/* ============================================================
+   Galerija responzivnost — 1200px
+   ============================================================ */
+
+@media (max-width: 1200px) {
+    .galerija-sekcija {
+        padding: 60px 0;
+    }
+
+    .galerija-zaglavlje,
+    .galerija-mreza,
+    .galerija-veza-wrap {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .galerija-mreza {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* ============================================================
+   Galerija responzivnost — 900px
+   ============================================================ */
+
+@media (max-width: 900px) {
+    .galerija-naslov {
+        font-size: 1.7rem;
+    }
+
+    .galerija-mreza {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+}
+
+
+/* ============================================================
+   Galerija responzivnost — 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .galerija-sekcija {
+        padding: 48px 0;
+    }
+
+    .galerija-zaglavlje,
+    .galerija-mreza,
+    .galerija-veza-wrap {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .galerija-zaglavlje {
+        margin-bottom: 24px;
+    }
+
+    .galerija-mreza {
+        gap: 12px;
+    }
+}
+
+
+/* ============================================================
+   Galerija responzivnost — 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+    .galerija-naslov {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* ============================================================
+   Fancybox prilagodbe — galerija.html
+   ============================================================ */
+
+/* Pozadina lightboxa (overlay) */
+
+.fancybox-bg {
+    background-color: rgba(44, 26, 14, 0.65);
+}
+
+/* Zaobljeni rubovi glavne prikazane slike u Fancyboxu */
+.fancybox-image {
+    border-radius: 6px;
+}
+
+/* Uklanjanje crne pozadine sa svih gumbova */
+.fancybox-button,
+.fancybox-button:visited,
+.fancybox-button:link {
+    background: transparent !important;
+}
+
+/* Uklanjanje zadane pozadine sa strelica za navigaciju */
+.fancybox-navigation .fancybox-button {
+    background: transparent !important;
+}
