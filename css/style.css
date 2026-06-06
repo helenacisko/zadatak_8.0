@@ -1660,7 +1660,7 @@ ul {
 /* Sekcija */
 
 .shop-sekcija {
-    padding: 72px 48px;
+    padding: 72px 0;
     background-color: #FFFFFF;
 }
 
@@ -1675,6 +1675,7 @@ ul {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 48px;
 }
 
 .shop-naslov {
@@ -1710,10 +1711,11 @@ ul {
 
 .shop-mreza {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 48px;
 }
 
 /* Oznaka NOVO */
@@ -1739,7 +1741,13 @@ ul {
 
 @media (max-width: 1200px) {
     .shop-sekcija {
-        padding: 60px 32px;
+        padding: 60px 0;
+    }
+
+    .shop-zaglavlje,
+    .shop-mreza {
+        padding-left: 32px;
+        padding-right: 32px;
     }
 }
 
@@ -1749,6 +1757,10 @@ ul {
    ============================================================ */
 
 @media (max-width: 900px) {
+    .shop-naslov {
+        font-size: 1.7rem;
+    }
+
     .shop-mreza {
         grid-template-columns: repeat(2, 1fr);
         gap: 18px;
@@ -1766,13 +1778,20 @@ ul {
 
 @media (max-width: 768px) {
     .shop-sekcija {
-        padding: 48px 20px;
+        padding: 48px 0;
     }
 
     .shop-zaglavlje {
         flex-direction: column;
         align-items: stretch;
         gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .shop-mreza {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .shop-filter {
@@ -1781,6 +1800,17 @@ ul {
 
     .shop-mreza {
         gap: 14px;
+    }
+}
+
+
+/* ============================================================
+   Webshop responzivnost — 480px
+   ============================================================ */
+
+@media (max-width: 480px) {
+    .shop-naslov {
+        font-size: 1.3rem;
     }
 }
 
