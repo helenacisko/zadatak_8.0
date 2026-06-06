@@ -241,9 +241,26 @@ $(document).ready(function () {
             $('.kosara-broj').removeClass('vidljiv');
         }
 
+        /* Dostava - besplatna iznad 50 eura, inace 3 eura */
+        var dostava = 3;
+        if (cijena >= 50) {
+            dostava = 0;
+        }
+
         renderStavke(kosara);
         $('.kosara-subtotal-iznos').text(formatirajCijenu(cijena));
-        $('.kosara-ukupno-iznos').text(formatirajCijenu(cijena));
+
+        if (dostava === 0) {
+            $('.kosara-dostava-iznos').text('Besplatno');
+            $('.kosara-poruka-dostava').addClass('sakrij');
+        } else {
+            $('.kosara-dostava-iznos').text(formatirajCijenu(dostava));
+            var doBesplatne = 50 - cijena;
+            $('.kosara-poruka-dostava').text('Još ' + formatirajCijenu(doBesplatne) + ' do besplatne dostave');
+            $('.kosara-poruka-dostava').removeClass('sakrij');
+        }
+
+        $('.kosara-ukupno-iznos').text(formatirajCijenu(cijena + dostava));
     }
 
     /* Otvaranje i zatvaranje kosarice */

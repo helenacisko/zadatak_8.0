@@ -1320,6 +1320,19 @@ ul {
     border-radius: 4px;
 }
 
+/* Poruka o besplatnoj dostavi */
+.kosara-poruka-dostava {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: #495440;
+    margin: 4px 0 0 0;
+    text-align: right;
+}
+
+.kosara-poruka-dostava.sakrij {
+    display: none;
+}
+
 /* Checkout */
 
 .kosara-checkout-gumb {
