@@ -1628,7 +1628,8 @@ ul {
     }
 
     .slajd-opis {
-        text-align: left;
+        text-align: justify;
+        text-justify: inter-word;
     }
 
     .poklon-naslov {
@@ -2331,10 +2332,17 @@ ul {
 
 .faq-stavka {
     background-color: #F5EEE9;
+    border: 1px solid rgba(44, 26, 14, 0.08);
     border-left: 4px solid #495440;
     border-radius: 6px;
     overflow: hidden;
-    transition: background-color 0.25s ease;
+    box-shadow: 0 2px 8px rgba(44, 26, 14, 0.04);
+    transition: background-color 0.25s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.faq-stavka:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(44, 26, 14, 0.1);
 }
 
 .faq-pitanje {
