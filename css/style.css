@@ -2259,3 +2259,187 @@ ul {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* FAQ sekcija */
+
+.faq-sekcija {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 64px 48px;
+}
+
+.faq-sadrzaj {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.faq-naslov {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2C1A0E;
+    margin: 0 0 40px;
+}
+
+.faq-uvod {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #2C1A0E;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0 0 56px;
+}
+
+.faq-uvod a {
+    color: #495440;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.faq-uvod a:hover {
+    color: #2C1A0E;
+}
+
+/* Kategorija pitanja */
+
+.faq-kategorija {
+    margin-bottom: 48px;
+}
+
+.faq-kategorija:last-child {
+    margin-bottom: 0;
+}
+
+.faq-kategorija-naslov {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #495440;
+    margin: 0 0 20px;
+}
+
+.faq-popis {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Pojedinacna stavka i toggle */
+
+.faq-stavka {
+    background-color: #F5EEE9;
+    border-left: 4px solid #495440;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: background-color 0.25s ease;
+}
+
+.faq-pitanje {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    color: #2C1A0E;
+    text-align: left;
+}
+
+.faq-pitanje-tekst {
+    flex: 1;
+    line-height: 1.5;
+}
+
+.faq-ikona {
+    font-size: 1.2rem;
+    color: #CDB48E;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-stavka.aktivno .faq-ikona {
+    transform: rotate(180deg);
+}
+
+/* Odgovor */
+
+.faq-odgovor {
+    display: none;
+    padding: 0 22px 20px;
+}
+
+.faq-odgovor-tekst {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #495440;
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 0;
+}
+
+/* Responzivnost FAQ */
+
+@media (max-width: 900px) {
+    .faq-sekcija {
+        padding: 48px 32px;
+    }
+
+    .faq-naslov {
+        font-size: 1.7rem;
+    }
+
+    .faq-kategorija-naslov {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .faq-sekcija {
+        padding: 32px 20px;
+    }
+
+    .faq-naslov {
+        font-size: 1.3rem;
+    }
+
+    .faq-uvod {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+
+    .faq-kategorija {
+        margin-bottom: 36px;
+    }
+
+    .faq-kategorija-naslov {
+        font-size: 1.15rem;
+    }
+
+    .faq-pitanje {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+    }
+
+    .faq-odgovor {
+        padding: 0 18px 18px;
+    }
+
+    .faq-odgovor-tekst {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .faq-pitanje {
+        font-size: 0.9rem;
+        padding: 14px 16px;
+    }
+}

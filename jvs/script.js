@@ -324,3 +324,29 @@ $(document).ready(function () {
     });
 
 });
+
+
+/* ============================================================
+   FAQ accordion — pitanja.html
+   ============================================================ */
+
+$(document).ready(function () {
+
+    /* Otvaranje i zatvaranje pitanja */
+
+    $('.faq-pitanje').click(function () {
+        var broj = $(this).data('broj');
+        var jeOtvoreno = $('#stavka-' + broj).hasClass('aktivno');
+
+        /* Zatvaram sva pitanja */
+        $('.faq-stavka').removeClass('aktivno');
+        $('.faq-odgovor').slideUp(300);
+
+        /* Otvaram kliknuto ako vec nije bilo otvoreno */
+        if (!jeOtvoreno) {
+            $('#stavka-' + broj).addClass('aktivno');
+            $('#odgovor-' + broj).slideDown(300);
+        }
+    });
+
+});
