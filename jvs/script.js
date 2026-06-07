@@ -243,7 +243,7 @@ $(document).ready(function () {
 
         /* Dostava - besplatna iznad 50 eura, inace 3 eura */
         var dostava = 3;
-        if (cijena >= 50) {
+        if (cijena > 50) {
             dostava = 0;
         }
 
@@ -255,7 +255,7 @@ $(document).ready(function () {
             $('.kosara-poruka-dostava').addClass('sakrij');
         } else {
             $('.kosara-dostava-iznos').text(formatirajCijenu(dostava));
-            var doBesplatne = 50 - cijena;
+            var doBesplatne = 50.01 - cijena;
             $('.kosara-poruka-dostava').text('Još ' + formatirajCijenu(doBesplatne) + ' do besplatne dostave');
             $('.kosara-poruka-dostava').removeClass('sakrij');
         }
