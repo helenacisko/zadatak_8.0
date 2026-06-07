@@ -350,3 +350,51 @@ $(document).ready(function () {
     });
 
 });
+
+
+/* ============================================================
+   Naplata — naplata.html
+   ============================================================ */
+
+$(document).ready(function () {
+
+    /* Ako je kosara prazna, vracam korisnika na webshop */
+
+    var kosara = JSON.parse(localStorage.getItem('linum_kosara') || '[]');
+
+    if (kosara.length === 0 && $('#formaNaplata').length > 0) {
+        alert('Vaša košarica je prazna. Dodajte proizvode prije nego nastavite na naplatu.');
+        window.location.href = 'webshop.html';
+    }
+
+    /* Obrada potvrde narudzbe */
+
+    $('#formaNaplata').on('submit', function (e) {
+        e.preventDefault();
+
+        var kosara = JSON.parse(localStorage.getItem('linum_kosara') || '[]');
+
+        if (kosara.length === 0) {
+            alert('Vaša košarica je prazna.');
+            return;
+        }
+
+        /* Racunam ukupan iznos i dodajem dostavu ako treba */
+        var ukupno = 0;
+        for (var i = 0; i < kosara.length; i++) {
+            ukupno += kosara[i].cijena * kosara[i].kolicina;
+        }
+        if (ukupno <= 50) {
+            ukupno += 3;
+        }
+
+        var formatiranIznos = ukupno.toFixed(2).replace('.', ',') + ' €';
+
+        alert('Hvala na narudžbi! Vaša narudžba u iznosu od ' + formatiranIznos + ' je uspješno zaprimljena. Potvrda će vam biti poslana na email adresu.');
+
+        /* Praznim kosaricu i vracam korisnika na pocetnu */
+        localStorage.removeItem('linum_kosara');
+        window.location.href = 'index.html';
+    });
+
+});

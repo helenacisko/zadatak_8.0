@@ -2452,3 +2452,146 @@ ul {
         padding: 14px 16px;
     }
 }
+
+
+/* Naplata stranica */
+
+.naplata-sekcija {
+    background-color: #FFFFFF;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 48px;
+}
+
+.naplata-naslov {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2C1A0E;
+    margin: 0 0 40px;
+}
+
+.naplata-podnaslov {
+    font-family: 'Noto Serif Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #495440;
+    margin: 40px 0 24px 0;
+}
+
+.naplata-podnaslov:first-of-type {
+    margin-top: 0;
+}
+
+.naplata-forma {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.naplata-red {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.naplata-polje {
+    display: flex;
+    flex-direction: column;
+}
+
+.naplata-polje-puno {
+    grid-column: 1 / -1;
+}
+
+.naplata-polje label {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    color: #2C1A0E;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.naplata-polje input {
+    font-family: 'Raleway', sans-serif;
+    background-color: #F5EEE9;
+    border: 1px solid #CDB48E;
+    border-radius: 6px;
+    padding: 14px 16px;
+    font-size: 1rem;
+    color: #2C1A0E;
+    transition: border-color 0.2s;
+}
+
+.naplata-polje input:focus {
+    outline: none;
+    border-color: #4A7C59;
+    box-shadow: 0 0 0 3px rgba(74, 124, 89, 0.18);
+}
+
+.naplata-polje input::placeholder {
+    color: #CDB48E;
+}
+
+.naplata-gumb {
+    font-family: 'Raleway', sans-serif;
+    background-color: transparent;
+    color: #2C1A0E;
+    border: 1.5px solid rgba(44, 26, 14, 0.55);
+    border-radius: 6px;
+    padding: 18px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.naplata-gumb:hover {
+    border-color: #495440;
+    background-color: #495440;
+    color: #FFFFFF;
+}
+
+.naplata-prazno {
+    background-color: #F5EEE9;
+    border-left: 4px solid #495440;
+    padding: 30px;
+    border-radius: 6px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: #2C1A0E;
+}
+
+.naplata-prazno-veza {
+    display: inline-block;
+    margin-top: 12px;
+    color: #495440;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .naplata-sekcija {
+        padding: 48px 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .naplata-sekcija {
+        padding: 40px 20px;
+    }
+
+    .naplata-naslov {
+        font-size: 1.6rem;
+        margin-bottom: 24px;
+    }
+
+    .naplata-podnaslov {
+        font-size: 1.3rem;
+    }
+
+    .naplata-red {
+        gap: 16px;
+    }
+}
