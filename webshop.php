@@ -1,3 +1,82 @@
+<?php
+
+/* Pokrecem sesiju kako bih pamtila je li admin ulogiran */
+session_start();
+
+/* Spajam se na bazu i kreiram tablicu proizvodi ako ne postoji */
+try {
+    $baza = new PDO('sqlite:linum.db');
+    $baza->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $baza->exec("CREATE TABLE IF NOT EXISTS proizvodi (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        naziv TEXT NOT NULL,
+        opis TEXT,
+        cijena REAL NOT NULL,
+        slika TEXT,
+        kategorija TEXT
+    )");
+} catch (Exception $e) {
+    die("Greska pri spajanju na bazu: " . $e->getMessage());
+}
+
+
+/* Lozinka za admin pristup */
+$lozinka_admin = 'linumhr2026';
+
+
+/* Obrada prijave admina */
+if (isset($_POST['prijava'])) {
+    if ($_POST['lozinka'] === $lozinka_admin) {
+        $_SESSION['admin'] = true;
+    } else {
+        $greska_prijave = 'Pogresna lozinka.';
+    }
+}
+
+
+/* Obrada odjave admina */
+if (isset($_GET['odjava'])) {
+    $_SESSION['admin'] = false;
+    header("Location: webshop.php");
+    exit();
+}
+
+
+/* Provjeravam je li admin trenutno ulogiran */
+$je_admin = isset($_SESSION['admin']) && $_SESSION['admin'] === true;
+
+
+/* Obrada dodavanja novog proizvoda u bazu */
+if ($je_admin && isset($_POST['dodaj'])) {
+    $unos = $baza->prepare("INSERT INTO proizvodi (naziv, opis, cijena, slika, kategorija)
+                            VALUES (:naziv, :opis, :cijena, :slika, :kategorija)");
+    $unos->execute([
+        ':naziv' => trim($_POST['naziv']),
+        ':opis' => trim($_POST['opis']),
+        ':cijena' => floatval($_POST['cijena']),
+        ':slika' => trim($_POST['slika']),
+        ':kategorija' => $_POST['kategorija']
+    ]);
+    header("Location: webshop.php#admin");
+    exit();
+}
+
+
+/* Obrada brisanja proizvoda iz baze */
+if ($je_admin && isset($_GET['obrisi'])) {
+    $brisanje = $baza->prepare("DELETE FROM proizvodi WHERE id = :id");
+    $brisanje->execute([':id' => intval($_GET['obrisi'])]);
+    header("Location: webshop.php#admin");
+    exit();
+}
+
+
+/* Citam sve proizvode iz baze */
+$citanje = $baza->query("SELECT * FROM proizvodi ORDER BY id DESC");
+$proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 <!DOCTYPE html>
 <html lang="hr">
 
@@ -15,12 +94,12 @@
 
     <!-- Noto Serif Display -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Gloock&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Manrope:wght@200..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poiret+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Teko:wght@300..700&family=Tenor+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
 
     <!-- Raleway -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Gloock&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Manrope:wght@200..800&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poiret+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Teko:wght@300..700&family=Tenor+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
     </style>
 
     <!-- Phosphor Icons -->
@@ -44,7 +123,7 @@
 
             <ul class="nav-veze">
                 <li><a href="index.html">Početna</a></li>
-                <li><a href="webshop.html" class="aktivna">Webshop</a></li>
+                <li><a href="webshop.php" class="aktivna">Webshop</a></li>
                 <li><a href="galerija.html">Galerija</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
                 <li><a href="pitanja.html">FAQ</a></li>
@@ -85,7 +164,7 @@
         <nav>
             <ul class="mob-veze">
                 <li><a href="index.html">Početna</a></li>
-                <li><a href="webshop.html">Webshop</a></li>
+                <li><a href="webshop.php">Webshop</a></li>
                 <li><a href="galerija.html">Galerija</a></li>
                 <li><a href="kontakt.html">Kontakt</a></li>
                 <li><a href="pitanja.html">FAQ</a></li>
@@ -465,7 +544,130 @@
                     </div>
                 </article>
 
+
+                <!-- Proizvodi iz baze podataka -->
+                <?php foreach ($proizvodi_iz_baze as $p): ?>
+                    <article class="kartica shop-kartica" data-kategorija="<?= htmlspecialchars($p['kategorija']) ?>">
+                        <div class="kartica-slika-omotac">
+                            <img src="<?= htmlspecialchars($p['slika']) ?>" alt="<?= htmlspecialchars($p['naziv']) ?>" loading="lazy">
+                        </div>
+                        <div class="kartica-info">
+                            <h3 class="kartica-naziv"><?= htmlspecialchars($p['naziv']) ?></h3>
+                            <p class="kartica-opis"><?= htmlspecialchars($p['opis']) ?></p>
+                            <div class="kartica-dno">
+                                <span class="cijena-redovna"><?= number_format($p['cijena'], 2, ',', '.') ?> €</span>
+                                <button class="gumb-dodaj" type="button"
+                                    data-id="baza-<?= $p['id'] ?>"
+                                    data-naziv="<?= htmlspecialchars($p['naziv']) ?>"
+                                    data-opis="<?= htmlspecialchars($p['opis']) ?>"
+                                    data-cijena="<?= $p['cijena'] ?>"
+                                    data-slika="<?= htmlspecialchars($p['slika']) ?>">
+                                    <i class="ph ph-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                <?php endforeach; ?>
+
             </div>
+
+        </section>
+
+
+        <!-- Admin sekcija -->
+        <section class="admin-sekcija" id="admin">
+
+            <?php if (!$je_admin): ?>
+
+                <!-- Forma za prijavu admina -->
+                <div class="admin-prijava-okvir">
+                    <div class="admin-prijava">
+                        <h2 class="admin-naslov-mali">Administratorska prijava</h2>
+                        <form method="POST" class="admin-forma-prijava">
+                            <input type="password" name="lozinka" placeholder="Unesite lozinku..." required>
+                            <button type="submit" name="prijava">Prijava</button>
+                        </form>
+                    </div>
+                    <?php if (isset($greska_prijave)): ?>
+                        <p class="admin-greska"><?= $greska_prijave ?></p>
+                    <?php endif; ?>
+                </div>
+
+            <?php else: ?>
+
+                <!-- Admin panel kad je ulogiran -->
+                <div class="admin-panel">
+
+                    <div class="admin-zaglavlje">
+                        <h2 class="admin-naslov">Administratorski panel</h2>
+                        <a href="?odjava=1" class="admin-odjava">Odjava</a>
+                    </div>
+
+                    <!-- Forma za dodavanje novog proizvoda -->
+                    <form method="POST" class="admin-forma-dodavanje">
+                        <h3 class="admin-podnaslov">Novi proizvod</h3>
+
+                        <div class="admin-red">
+                            <div class="admin-polje">
+                                <label for="naziv">Naziv</label>
+                                <input type="text" id="naziv" name="naziv" placeholder="npr. Deka Zebra" required>
+                            </div>
+                            <div class="admin-polje">
+                                <label for="cijena">Cijena (€)</label>
+                                <input type="number" step="0.01" id="cijena" name="cijena" placeholder="npr. 29.99" required>
+                            </div>
+                        </div>
+
+                        <div class="admin-polje">
+                            <label for="opis">Opis</label>
+                            <textarea id="opis" name="opis" placeholder="Kratak opis proizvoda" required></textarea>
+                        </div>
+
+                        <div class="admin-red">
+                            <div class="admin-polje">
+                                <label for="slika">Putanja do slike</label>
+                                <input type="text" id="slika" name="slika" placeholder="img/nova-slika.png" required>
+                            </div>
+                            <div class="admin-polje">
+                                <label for="kategorija">Kategorija</label>
+                                <select id="kategorija" name="kategorija" required>
+                                    <option value="deke">Deke</option>
+                                    <option value="plahte">Plahte</option>
+                                    <option value="posteljine">Posteljine</option>
+                                    <option value="jastucnice">Jastučnice</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" name="dodaj" class="admin-gumb">Dodaj proizvod</button>
+                    </form>
+
+                    <!-- Lista proizvoda iz baze s mogucnoscu brisanja -->
+                    <div class="admin-lista">
+                        <h3 class="admin-podnaslov">Proizvodi u bazi</h3>
+
+                        <?php if (count($proizvodi_iz_baze) === 0): ?>
+                            <p class="admin-prazno">Baza je trenutno prazna. Dodajte proizvod iznad.</p>
+                        <?php else: ?>
+                            <?php foreach ($proizvodi_iz_baze as $p): ?>
+                                <div class="admin-stavka">
+                                    <img src="<?= htmlspecialchars($p['slika']) ?>" alt="<?= htmlspecialchars($p['naziv']) ?>" class="admin-stavka-slika">
+                                    <div class="admin-stavka-info">
+                                        <strong><?= htmlspecialchars($p['naziv']) ?></strong>
+                                        <span class="admin-stavka-cijena"><?= number_format($p['cijena'], 2, ',', '.') ?> €</span>
+                                    </div>
+                                    <a href="?obrisi=<?= $p['id'] ?>" class="admin-obrisi"
+                                        onclick="return confirm('Sigurno želite obrisati ovaj proizvod?');">
+                                        <i class="ph ph-trash"></i> Obriši
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+
+            <?php endif; ?>
 
         </section>
 
@@ -496,7 +698,7 @@
                 <h3 class="podnozje-stupac-naslov">Navigacija</h3>
                 <ul>
                     <li><a href="index.html">Početna</a></li>
-                    <li><a href="webshop.html">Webshop</a></li>
+                    <li><a href="webshop.php">Webshop</a></li>
                     <li><a href="galerija.html">Galerija</a></li>
                     <li><a href="kontakt.html">Kontakt</a></li>
                     <li><a href="pitanja.html">FAQ</a></li>

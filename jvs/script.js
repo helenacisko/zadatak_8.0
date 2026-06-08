@@ -299,7 +299,7 @@ $(document).ready(function () {
 });
 
 /* ============================================================
-   Webshop filter — webshop.html
+   Webshop filter — webshop.php
    ============================================================ */
 
 $(document).ready(function () {
@@ -364,7 +364,7 @@ $(document).ready(function () {
 
     if (kosara.length === 0 && $('#formaNaplata').length > 0) {
         alert('Vaša košarica je prazna. Dodajte proizvode prije nego nastavite na naplatu.');
-        window.location.href = 'webshop.html';
+        window.location.href = 'webshop.php';
     }
 
     /* Obrada potvrde narudzbe */
