@@ -1449,6 +1449,14 @@ ul {
     .podnozje-veze {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .kartica-naziv {
+        font-size: 0.88rem;
+    }
+
+    .kartica-opis {
+        font-size: 0.75rem;
+    }
 }
 
 
@@ -1619,6 +1627,11 @@ ul {
 
     .kartica-opis {
         text-align: left;
+        font-size: 0.7rem;
+    }
+
+    .kartica-naziv {
+        font-size: 0.82rem;
     }
 
     .slajd-sadrzaj {
@@ -2596,6 +2609,45 @@ ul {
     }
 }
 
+@media (max-width: 480px) {
+    .naplata-sekcija {
+        padding: 32px 14px;
+    }
+
+    .naplata-naslov {
+        font-size: 1.35rem;
+    }
+
+    .naplata-podnaslov {
+        font-size: 1.1rem;
+    }
+
+    .naplata-red {
+        gap: 10px;
+    }
+
+    .naplata-polje label {
+        font-size: 0.88rem;
+        margin-bottom: 6px;
+    }
+
+    .naplata-polje input {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .naplata-gumb {
+        padding: 14px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .naplata-red {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* ============================================================
    Admin sekcija — webshop.php
@@ -2912,6 +2964,10 @@ ul {
     .admin-panel {
         padding: 40px 24px;
     }
+
+    .admin-naslov {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2929,15 +2985,14 @@ ul {
         text-align: center;
     }
 
-    .admin-red {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
 
     .admin-zaglavlje {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .admin-naslov {
+        font-size: 0.9rem;
     }
 
     .admin-stavka {
@@ -2960,7 +3015,12 @@ ul {
     }
 
     .admin-naslov {
-        font-size: 1.5rem;
+        font-size: 0.85rem;
+    }
+
+    .admin-red {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .admin-panel {
