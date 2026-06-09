@@ -35,6 +35,13 @@ img {
     display: block;
 }
 
+/* Maknem plavi tap kod mobilnog preglednika */
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -1634,7 +1641,6 @@ ul {
     }
 
     .kartica-opis {
-        text-align: left;
         font-size: 0.7rem;
     }
 
@@ -1968,7 +1974,7 @@ ul {
     }
 
     .galerija-mreza {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -2022,6 +2028,18 @@ ul {
 @media (max-width: 480px) {
     .galerija-naslov {
         font-size: 1.3rem;
+    }
+}
+
+
+/* ============================================================
+   Galerija responzivnost — 560px
+   ============================================================ */
+
+@media (max-width: 560px) {
+    .galerija-mreza {
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 }
 
