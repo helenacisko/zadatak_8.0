@@ -1341,8 +1341,8 @@ ul {
     width: 100%;
     padding: 14px;
     background-color: transparent;
-    color: #2C1A0E;
-    border: 1.5px solid rgba(44, 26, 14, 0.55);
+    color: #495440;
+    border: 1.5px solid #495440;
     border-radius: 4px;
     font-family: 'Raleway', sans-serif;
     font-size: 0.88rem;
@@ -2549,8 +2549,8 @@ ul {
 .naplata-gumb {
     font-family: 'Raleway', sans-serif;
     background-color: transparent;
-    color: #2C1A0E;
-    border: 1.5px solid rgba(44, 26, 14, 0.55);
+    color: #495440;
+    border: 1.5px solid #495440;
     border-radius: 6px;
     padding: 18px;
     font-size: 1.1rem;
@@ -2623,6 +2623,7 @@ ul {
     }
 
     .naplata-red {
+        grid-template-columns: 1fr;
         gap: 10px;
     }
 
@@ -2642,11 +2643,6 @@ ul {
     }
 }
 
-@media (max-width: 360px) {
-    .naplata-red {
-        grid-template-columns: 1fr;
-    }
-}
 
 
 /* ============================================================
