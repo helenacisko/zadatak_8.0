@@ -1400,6 +1400,20 @@ ul {
 
 
 /* ============================================================
+   Responzivnost — 1080px
+   ============================================================ */
+
+@media (max-width: 1080px) {
+
+    .proizvodi-mreza,
+    .snizenje-mreza {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+
+/* ============================================================
    Responzivnost — 900px
    ============================================================ */
 
@@ -1410,12 +1424,6 @@ ul {
 
     .slider-okvir {
         height: 440px;
-    }
-
-    .proizvodi-mreza,
-    .snizenje-mreza {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
     }
 
     .prednosti-unutra {
@@ -1661,15 +1669,24 @@ ul {
 
 
 /* ============================================================
-   Responzivnost — 320px
+   Responzivnost — 560px
    ============================================================ */
 
-@media (max-width: 320px) {
+@media (max-width: 560px) {
 
     .proizvodi-mreza,
     .snizenje-mreza {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
+}
+
+
+/* ============================================================
+   Responzivnost — 320px
+   ============================================================ */
+
+@media (max-width: 320px) {
 
     .podnozje-veze {
         grid-template-columns: 1fr;
@@ -1717,7 +1734,7 @@ ul {
 
 .shop-filter {
     width: 260px;
-    padding: 14px 18px;
+    padding: 14px 44px 14px 18px;
     background-color: #FFFFFF;
     border: 1px solid rgba(44, 26, 14, 0.18);
     border-radius: 6px;
@@ -1726,13 +1743,16 @@ ul {
     color: #2C1A0E;
     cursor: pointer;
     transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23CDB48E' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
 }
 
-.shop-filter:hover,
 .shop-filter:focus {
-    border-color: #495440;
     outline: none;
-    box-shadow: 0 2px 8px rgba(44, 26, 14, 0.06);
+    box-shadow: 0 2px 10px rgba(44, 26, 14, 0.12);
 }
 
 /* Mreža proizvoda */
@@ -1781,17 +1801,24 @@ ul {
 
 
 /* ============================================================
+   Webshop responzivnost — 1080px
+   ============================================================ */
+
+@media (max-width: 1080px) {
+    .shop-mreza {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+}
+
+
+/* ============================================================
    Webshop responzivnost — 900px
    ============================================================ */
 
 @media (max-width: 900px) {
     .shop-naslov {
         font-size: 1.7rem;
-    }
-
-    .shop-mreza {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
     }
 
     .shop-filter {
@@ -1844,12 +1871,13 @@ ul {
 
 
 /* ============================================================
-   Webshop responzivnost — 320px
+   Webshop responzivnost — 560px
    ============================================================ */
 
-@media (max-width: 320px) {
+@media (max-width: 560px) {
     .shop-mreza {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
 }
 
@@ -2702,13 +2730,13 @@ ul {
     border-radius: 5px;
     background-color: #FFFFFF;
     color: #2C1A0E;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .admin-forma-prijava input:focus {
     outline: none;
-    border-color: #A07840;
-    box-shadow: 0 0 0 3px rgba(205, 180, 142, 0.28);
+    border-color: #CDB48E;
+    box-shadow: 0 0 0 3px rgba(205, 180, 142, 0.35);
 }
 
 .admin-forma-prijava input::placeholder {
@@ -2767,10 +2795,7 @@ ul {
     font-size: 0.9rem;
     color: #495440;
     margin: 20px 0 10px 0;
-    border: 1px solid #CDB48E;
-    border-radius: 5px;
-    padding: 8px 14px;
-    background-color: #FBF7F3;
+    padding: 8px 0;
     display: inline-block;
 }
 
@@ -2837,7 +2862,7 @@ ul {
     border-radius: 5px;
     background-color: #FFFFFF;
     color: #2C1A0E;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .admin-polje textarea {
@@ -2850,8 +2875,8 @@ ul {
 .admin-polje select:focus,
 .admin-polje textarea:focus {
     outline: none;
-    border-color: #A07840;
-    box-shadow: 0 0 0 3px rgba(205, 180, 142, 0.28);
+    border-color: #CDB48E;
+    box-shadow: 0 0 0 3px rgba(205, 180, 142, 0.35);
 }
 
 /* Glavna admin tipka */
@@ -2881,13 +2906,18 @@ ul {
     margin-top: 20px;
 }
 
+.admin-lista .admin-podnaslov {
+    margin-bottom: 16px;
+}
+
 .admin-prazno {
     font-family: 'Raleway', sans-serif;
     color: #2C1A0E;
     font-style: italic;
     text-align: center;
     padding: 20px;
-    background-color: #F5EEE9;
+    background-color: #FBF7F3;
+    border: 1px solid #CDB48E;
     border-radius: 5px;
 }
 

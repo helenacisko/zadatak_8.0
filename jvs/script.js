@@ -72,35 +72,39 @@ $(document).ready(function () {
         }
     });
 
-    pokreniAuto();
+    /* Pokrecem auto samo ako slider postoji na stranici */
+    if (slajdovi.length > 0) {
+        pokreniAuto();
+    }
 
 
     /* Hamburger izbornik */
 
+    /* Funkcija za zatvaranje mobilnog izbornika */
+    function zatvoriMobIzbornik() {
+        $('.mob-izbornik').fadeOut(300);
+        $('.hamburger').removeClass('aktivan');
+        $('body').css('overflow', '');
+    }
+
     $('.hamburger').click(function () {
-        if ($('.hamburger').hasClass('aktivan')) {
+        if ($(this).hasClass('aktivan')) {
             /* Zatvaranje */
-            $('.mob-izbornik').fadeOut(300);
-            $('.hamburger').removeClass('aktivan');
-            $('body').css('overflow', '');
+            zatvoriMobIzbornik();
         } else {
             /* Otvaranje */
             $('.mob-izbornik').fadeIn(300);
-            $('.hamburger').addClass('aktivan');
+            $(this).addClass('aktivan');
             $('body').css('overflow', 'hidden');
         }
     });
 
     $('.mob-zatvori').click(function () {
-        $('.mob-izbornik').fadeOut(300);
-        $('.hamburger').removeClass('aktivan');
-        $('body').css('overflow', '');
+        zatvoriMobIzbornik();
     });
 
     $('.mob-veze a').click(function () {
-        $('.mob-izbornik').fadeOut(300);
-        $('.hamburger').removeClass('aktivan');
-        $('body').css('overflow', '');
+        zatvoriMobIzbornik();
     });
 
     /* Zatvori meni kad se prozor proširi iznad mobilnog breakpointa */

@@ -204,8 +204,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Posteljina set "Medvjedići"</h3>
-                        <p class="kartica-opis">Dječji set od hipoalergenskog pamuka s motivom medvjedića na žutoj
-                            podlozi. Navlaka 140x200 cm, jastučnica 60x80 cm.</p>
+                        <p class="kartica-opis">Dječji set od hipoalergenskog pamuka s motivom medvjedića u žutoj boji. Dimenzije: navlaka 140 x 200 cm, jastučnica 60 x 80 cm.</p>
                         <div class="kartica-dno">
                             <div class="kartica-cijena">
                                 <span class="cijena-stara">44,99 €</span>
@@ -227,8 +226,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Posteljina set "Lavanda"</h3>
-                        <p class="kartica-opis">Set od navlake i dvije jastučnice od češljanog pamuka s uzorkom lavande.
-                            Navlaka 200x220 cm, jastučnice 60x80 cm.</p>
+                        <p class="kartica-opis">Set od češljanog pamuka s uzorkom lavande u ljubičastoj boji. Dimenzije: navlaka 200 x 220 cm, jastučnice 60 x 80 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">49,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="posteljina-lavanda"
@@ -248,8 +246,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Posteljina set "Magla"</h3>
-                        <p class="kartica-opis">Set od navlake i dvije jastučnice u nježno zelenoj boji s cvjetnim
-                            motivima. Navlaka 200x220 cm, jastučnice 60x80 cm.</p>
+                        <p class="kartica-opis">Set od češljanog pamuka u nježno zelenoj boji s cvjetnim motivima. Dimenzije: navlaka 200 x 220 cm, jastučnice 60 x 80 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">42,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="posteljina-magla"
@@ -269,8 +266,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Posteljina set "Rosé"</h3>
-                        <p class="kartica-opis">Set od navlake i dvije jastučnice od muslin pamuka u nježnoj roza boji s
-                            naboranom teksturom. Navlaka 200x220 cm, jastučnice 60x80 cm.</p>
+                        <p class="kartica-opis">Set od muslin pamuka u nježnoj rozoj boji s nabranom teksturom. Dimenzije: navlaka 200 x 220 cm, jastučnice 60 x 80 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">54,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="posteljina-rose"
@@ -293,8 +289,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Plahta "Tulipani"</h3>
-                        <p class="kartica-opis">Pamučna plahta s uzorkom tulipana i gumicom po rubu, prikladna za
-                            standardne madrace. Dimenzija 160x200 cm.</p>
+                        <p class="kartica-opis">Pamučna plahta s uzorkom tulipana na nježnoj podlozi. Dimenzije: 160 x 200 cm.</p>
                         <div class="kartica-dno">
                             <div class="kartica-cijena">
                                 <span class="cijena-stara">29,99 €</span>
@@ -316,8 +311,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Plahta "Pruge"</h3>
-                        <p class="kartica-opis">Pamučna plahta s gumicom i plavim prugama na bijeloj podlozi. Dimenzija
-                            180x200 cm, džep dubok 30 cm.</p>
+                        <p class="kartica-opis">Pamučna plahta s plavim prugama na bijeloj podlozi. Dimenzije: 180 x 200 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">24,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="plahta-pruge" data-naziv='Plahta "Pruge"'
@@ -336,8 +330,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Plahta "Oblaci"</h3>
-                        <p class="kartica-opis">Pamučna plahta s gumicom u nježno ružičastoj boji s motivima oblaka.
-                            Pogodna za dječje krevete dimenzija 140x200 cm.</p>
+                        <p class="kartica-opis">Dječja pamučna plahta s motivima oblaka i mjeseca u nježno ružičastoj boji. Dimenzije: 140 x 200 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">22,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="plahta-oblaci"
@@ -357,8 +350,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Plahta "Zvjezdice"</h3>
-                        <p class="kartica-opis">Dječja satenasta plahta s gumicom u nježnoj zelenoj boji s motivima
-                            oblaka i zvjezdica. Dimenzija 140x200 cm, mekana na dodir.</p>
+                        <p class="kartica-opis">Dječja pamučna plahta s motivima oblaka i zvjezdica u nježno zelenoj boji. Dimenzije: 140 x 200 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">26,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="plahta-zvjezdice"
@@ -381,8 +373,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Jastučnica "Maslina"</h3>
-                        <p class="kartica-opis">Set od dvije satenske jastučnice u maslinasto zelenoj boji s nježnim
-                            cvjetnim uzorkom. Dimenzija 50x70 cm.</p>
+                        <p class="kartica-opis">Set od dvije satenske jastučnice u maslinasto zelenoj boji s cvjetnim uzorkom. Dimenzije: 50 x 70 cm.</p>
                         <div class="kartica-dno">
                             <div class="kartica-cijena">
                                 <span class="cijena-stara">24,99 €</span>
@@ -404,8 +395,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Jastučnica "Karamela"</h3>
-                        <p class="kartica-opis">Set od dvije mekane jastučnice u toploj karamel boji s pliš teksturom.
-                            Idealne za zimske dane, dimenzija 50x70 cm.</p>
+                        <p class="kartica-opis">Set od dvije mekane jastučnice u toploj karamel boji s pliš teksturom. Dimenzije: 50 x 70 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">19,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="jastucnica-karamela"
@@ -425,8 +415,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Jastučnica "Sofija"</h3>
-                        <p class="kartica-opis">Set od dvije pamučne jastučnice s klasičnim karo uzorkom u sivim
-                            tonovima. Dimenzija 60x80 cm, ugodne na dodir.</p>
+                        <p class="kartica-opis">Set od dvije pamučne jastučnice s klasičnim kariranim uzorkom u sivim tonovima. Dimenzije: 60 x 80 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">17,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="jastucnica-karo"
@@ -446,8 +435,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Jastučnica "Botanik"</h3>
-                        <p class="kartica-opis">Set od dvije jastučnice s botaničkim uzorkom lišća na zelenkastoj
-                            podlozi i elegantnim ruffle rubom. Dimenzija 50x70 cm.</p>
+                        <p class="kartica-opis">Set od dvije jastučnice s botaničkim uzorkom lišća na zelenkastoj podlozi. Dimenzije: 50 x 70 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">22,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="jastucnica-botanik"
@@ -470,8 +458,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Deka "Leopard"</h3>
-                        <p class="kartica-opis">Mekana deka od mikroflisa s leopard uzorkom u bež i smeđim tonovima.
-                            Dimenzija 130x170 cm, 320 g/m².</p>
+                        <p class="kartica-opis">Mekana deka od mikroflisa s leopard uzorkom u bež i smeđim tonovima. Dimenzije: 130 x 170 cm.</p>
                         <div class="kartica-dno">
                             <div class="kartica-cijena">
                                 <span class="cijena-stara">39,99 €</span>
@@ -492,8 +479,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Deka "Ljubičica"</h3>
-                        <p class="kartica-opis">Mekana deka od mikrovlakana u ljubičastoj boji, lagana i prikladna za
-                            sofu i krevet. Dimenzija 150x200 cm.</p>
+                        <p class="kartica-opis">Mekana deka od mikrovlakana u čistoj ljubičastoj boji. Dimenzije: 150 x 200 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">34,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="deka-ljubicica"
@@ -513,8 +499,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Deka "Koralj"</h3>
-                        <p class="kartica-opis">Lagana muslin deka s motivima koralja i školjki u plavim tonovima.
-                            Pogodna za ljetne večeri, dimenzija 120x160 cm.</p>
+                        <p class="kartica-opis">Lagana muslin deka s motivima koralja i školjki u plavim tonovima. Dimenzije: 120 x 160 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">29,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="deka-koralj" data-naziv='Deka "Koralj"'
@@ -532,8 +517,7 @@ $proizvodi_iz_baze = $citanje->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="kartica-info">
                         <h3 class="kartica-naziv">Deka "Mačkice"</h3>
-                        <p class="kartica-opis">Mekana flis deka s uzorkom mačkica i šapica na sivoj podlozi. Prikladna
-                            za djecu i ljubitelje mačaka, dimenzija 130x170 cm.</p>
+                        <p class="kartica-opis">Mekana flis deka s uzorkom mačkica i šapica na sivoj podlozi. Dimenzije: 130 x 170 cm.</p>
                         <div class="kartica-dno">
                             <span class="cijena-redovna">32,99 €</span>
                             <button class="gumb-dodaj" type="button" data-id="deka-mackice" data-naziv='Deka "Mačkice"'
